@@ -38,6 +38,10 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+
+        $('#btnD').click(function(e) {
+            btnDClick(e);
+        });
         init();
     });
     
@@ -162,7 +166,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+        $('#btnD').prop('disabled', false);
     }
 
     // Alarmの処理
@@ -207,6 +211,16 @@
         $("#remain").html("残り時間： " + period);
         
     }
+
+    // ButtonDがクリックされた時の処理
+    function btnDClick(e){
+        alarm();
+        active = false;
+        period = 60*5;
+        $("#time").html("経過時間： 0");
+        $("#remain").html("残り時間： " + period);
+        
+    }
     
  
     // 繰り返し実行する処理
@@ -221,24 +235,26 @@
             if (rest <= 0) {
                 active = false;
                 alarm();
-            }
+            }           
+            
         }
     } 
 
   </script>
 </head>
 <body>
-    <canvas id="mycanvas" width="200" height="200">Test</canvas>
+    <canvas id="mycanvas" width="300" height="300">Test</canvas>
 
-    <div id="minuteStr">〇</div>
-    <div id="secondStr">〇</div>
+    <div id="minuteStr"></div>
+    <div id="secondStr"></div>
 
     <div id="remain">Remaining time</div>
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
-    <input type="number" id="minute" value=0 >
-    <input type="number" id="second" value=15 >
+    <button id="btnC">Set</button>
+    <button id="btnD">5分</button>  
+    <input type="number" id="minute" value=3 >
+    <input type="number" id="second" value=0 >
 </body>
 </html>
