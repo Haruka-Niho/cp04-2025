@@ -50,6 +50,14 @@
         $('#btnF').click(function(e) {
             btnFClick(e);
         });
+
+        $('#btnG').click(function(e) {
+            btnGClick(e);
+        });
+
+        $('#btnH').click(function(e) {
+            btnHClick(e);
+        });
         init();
     });
     
@@ -177,6 +185,8 @@
         $('#btnD').prop('disabled', false);
         $('#btnE').prop('disabled', false);
         $('#btnF').prop('disabled', false);
+        $('#btnG').prop('disabled', false);
+        $('#btnH').prop('disabled', false);
     }
 
     // Alarmの処理
@@ -226,7 +236,7 @@
     function btnDClick(e){
         alarm();
         active = false;
-        period = 60*5;
+        period = 60*6;
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
         
@@ -236,7 +246,7 @@
     function btnEClick(e){
         alarm();
         active = false;
-        period = 60*15;
+        period = 60*8;
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
         
@@ -246,7 +256,27 @@
     function btnFClick(e){
         alarm();
         active = false;
-        period = 60*30;
+        period = 60*10;
+        $("#time").html("経過時間： 0");
+        $("#remain").html("残り時間： " + period);
+        
+    }
+
+    // ButtonGがクリックされた時の処理
+    function btnGClick(e){
+        alarm();
+        active = false;
+        period = 60*12;
+        $("#time").html("経過時間： 0");
+        $("#remain").html("残り時間： " + period);
+        
+    }
+
+    // ButtonHがクリックされた時の処理
+    function btnHClick(e){
+        alarm();
+        active = false;
+        period = 60*14;
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
         
@@ -283,9 +313,11 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>
-    <button id="btnD">5分</button>  
-    <button id="btnE">15分</button>
-    <button id="btnF">30分</button>
+    <button id="btnD">6分</button>  
+    <button id="btnE">8分</button>
+    <button id="btnF">10分</button>
+    <button id="btnG">12分</button>  
+    <button id="btnH">14分</button>
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
 </body>
