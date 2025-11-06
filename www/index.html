@@ -292,11 +292,28 @@
             $("#remain").html("残り時間： " + rest);
             analog(rest);
             
+            var ratio = rest / period;
+            var canvas = $("#mycanvas")[0];
+            var ctx = canvas.getContext("2d");
+
+            if (ratio > 0.6) {
+                ctx.fillStyle = "rgba(255, 140, 0, 0.7)"; 
+            } else if (ratio > 0.4) {
+                ctx.fillStyle = "rgba(255, 165, 0, 0.7)"; 
+            } else if (ratio > 0.2) {
+                ctx.fillStyle = "rgba(255, 215, 0, 0.7)";   
+            } else {
+                ctx.fillStyle = "rgba(255, 255, 102, 0.7)";   
+            }
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+            analog(rest);
+
             if (rest <= 0) {
                 active = false;
                 alarm();
-            }           
-            
+            }
+      
         }
     } 
 
